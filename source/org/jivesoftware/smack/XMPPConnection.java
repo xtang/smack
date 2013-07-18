@@ -1101,4 +1101,15 @@ public class XMPPConnection extends Connection {
             }
         }
     }
+
+    /**
+     * check if this connection is busy on sending packet
+     * @return
+     */
+    public boolean isBusy() {
+        if (packetWriter != null) {
+            return this.packetWriter.maybeBusy();
+        }
+        return true;
+    }
 }

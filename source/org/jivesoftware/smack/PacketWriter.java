@@ -234,4 +234,17 @@ class PacketWriter {
         writer.write(stream.toString());
         writer.flush();
     }
+
+    /**
+     * test if packet writer is busy
+     *
+     * add by xtang
+     */
+
+    boolean maybeBusy() {
+        if (queue.size() >= 250) { // half of the queue capability
+            return true;
+        }
+        return false;
+    }
 }

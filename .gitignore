@@ -1,0 +1,16 @@
+*.pyc
+.*.swp
+.idea
+*.jpr
+*.iws
+*.iml
+*.log
+.classpath
+.project
+.settings
+*.DS_Store
+src/avos-backend/bin
+src/avos*/target
+src/avos*/src/test/resources
+src/metaq/meta*/logs
+src/fetcher*/target

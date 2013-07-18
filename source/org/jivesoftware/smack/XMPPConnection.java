@@ -1106,10 +1106,17 @@ public class XMPPConnection extends Connection {
      * check if this connection is busy on sending packet
      * @return
      */
-    public boolean isBusy() {
-        if (packetWriter != null) {
-            return this.packetWriter.maybeBusy();
+    public void waitUntilNotBusy() {
+        if (packetWriter == null) {
+            return;
         }
-        return true;
+        while (packetWriter.maybeBusy()) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                //ignore
+                ;
+            }
+        }
     }
 }

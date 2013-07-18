@@ -1112,7 +1112,7 @@ public class XMPPConnection extends Connection {
         }
         while (packetWriter.maybeBusy()) {
             try {
-                Thread.sleep(500);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 //ignore
                 ;

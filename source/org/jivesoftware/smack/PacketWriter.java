@@ -242,9 +242,6 @@ class PacketWriter {
      */
 
     boolean maybeBusy() {
-        if (queue.size() >= 250) { // half of the queue capability
-            return true;
-        }
-        return false;
+        return queue.size() >= 250;
     }
 }

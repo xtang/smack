@@ -1,0 +1,134 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.igniterealtime.smack</groupId>
+  <artifactId>smack</artifactId>
+  <version>3.3.0.build-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Smack fork</name>
+
+  <!-- Inherit the Sonatype OSS deployment configuration -->
+  <distributionManagement>
+	<repository>
+	  <id>releases</id>
+	  <name>public</name>
+	  <url>http://maven.mei.fm/nexus/content/repositories/releases/</url>
+	</repository>
+	<snapshotRepository>
+	  <id>snapshots</id>
+	  <name>Snapshots</name>
+	  <url>http://maven.mei.fm/nexus/content/repositories/snapshots/</url>
+	</snapshotRepository>
+  </distributionManagement>
+
+  <properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+	<sourceDirectory>source</sourceDirectory>
+  </build>
+
+  <!--
+	  <distributionManagement>
+	  <site>
+	  <id>gh-pages</id>
+	  <url>file:${project.basedir}/site</url>
+	  </site>
+	  <repository>
+	  <id>notnoop-m2-repository</id>
+	  <url>file:${project.basedir}/target/deploy/repo</url>
+	  </repository>
+	  </distributionManagement>
+  -->
+  <dependencies>
+	<dependency>
+	  <groupId>com.jcraft</groupId>
+	  <artifactId>jzlib</artifactId>
+	  <version>1.1.2</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.littleshoot</groupId>
+	  <artifactId>dnsjava</artifactId>
+	  <version>2.1.3</version>
+	</dependency>
+	<dependency>
+	  <groupId>xpp3</groupId>
+	  <artifactId>xpp3_min</artifactId>
+	  <version>1.1.4c</version>
+	</dependency>
+	<dependency>
+	  <groupId>commons-logging</groupId>
+	  <artifactId>commons-logging-api</artifactId>
+	  <version>1.1</version>
+	</dependency>
+	<dependency>
+	  <groupId>commons-logging</groupId>
+	  <artifactId>commons-logging</artifactId>
+	  <version>1.1</version>
+	</dependency>
+  </dependencies>
+
+  <!-- Site Generation -->
+  <url>http://notnoop.github.com/java-apns</url>
+  <description>
+	Library to send Apple Push Notification.
+  </description>
+
+  <licenses>
+	<license>
+	  <name>New BSD License</name>
+	  <url>http://www.opensource.org/licenses/bsd-license.php</url>
+	  <distribution>repo</distribution>
+	</license>
+  </licenses>
+
+  <reporting>
+	<plugins>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<version>2.9</version>
+		<configuration>
+		  <excludePackageNames>com.notnoop.apns.internal</excludePackageNames>
+		</configuration>
+	  </plugin>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-jxr-plugin</artifactId>
+		<version>2.3</version>
+	  </plugin>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<version>2.7.1</version>
+	  </plugin>
+	  <plugin>
+		<groupId>com.atlassian.maven.plugins</groupId>
+		<artifactId>maven-clover2-plugin</artifactId>
+		<version>2.3.1</version>
+	  </plugin>
+
+	  <!--
+		  <plugin>
+		  <groupId>org.codehaus.mojo</groupId>
+		  <artifactId>findbugs-maven-plugin</artifactId>
+		  <version>2.5.2</version>
+		  </plugin>
+	  -->
+	</plugins>
+  </reporting>
+
+  <issueManagement>
+	<system>Github</system>
+	<url>http://github.com/notnoop/java-apns/issues</url>
+  </issueManagement>
+
+  <developers>
+	<developer>
+	  <id>notnoop</id>
+	  <name>Mahmood Ali</name>
+	</developer>
+  </developers>
+
+</project>

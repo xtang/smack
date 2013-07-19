@@ -1110,11 +1110,25 @@ public class XMPPConnection extends Connection {
         if (packetWriter == null) {
             return;
         }
-        while (packetWriter.maybeBusy()) {
+        while (packetWriter.maybeBusy(250)) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 //ignore
+                ;
+            }
+        }
+    }
+
+    public void waitUntilFinished() {
+        if (packetWriter == null) {
+            return;
+        }
+        while (packetWriter.maybeBusy(10)) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                // ignore
                 ;
             }
         }

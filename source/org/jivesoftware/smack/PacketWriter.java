@@ -241,7 +241,7 @@ class PacketWriter {
      * add by xtang
      */
 
-    boolean maybeBusy() {
-        return queue.size() >= 250;
+    boolean maybeBusy(int lowSize) {
+        return queue.size() >= lowSize;
     }
 }
